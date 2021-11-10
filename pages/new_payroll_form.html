@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,6 +152,15 @@
                 </div>
             </div>
         </form>
+        <script>
+            const salary=document.querySelector('#salary');
+            const output=document.querySelector('.salary-output');
+            output.textContent=salary.value;
+            salary.addEventListener('input',function(){
+                output.textContent=salary.value;
+            })
+        </script>
+    </div>
     </div>
 </body>
 
