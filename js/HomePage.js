@@ -13,7 +13,7 @@ const getEmployeeDataFromStorage = () => {
 const createInnerHtml = () => {
     const headerHTML = "<tr> <th></th> <th>Name</th> <th>Gender</th> <th>Department</th>"+
                        "<th>Salary</th> <th>StartDate</th><th>Actions</th> </tr>";
-   
+                       if(empPayrollList.length == 0) return;
     const innerHTML = `${headerHTML}`;
     for (const empPayrollData of empPayrollList) {
         innerHTML = `${innerHTML}
@@ -29,13 +29,12 @@ const createInnerHtml = () => {
     <td>${stringifyDate(empPayrollData._startDate)}</td>
     <td>
         <img id="${empPayrollData._id}" onclick="remove(this)"
-        alt="delete" src="../Assets/icons/delete-black-18dp.svg">
+        alt="delete" src="../assets/icons/delete-black-18dp.svg">
         <img id="${empPayrollData._id}" onclick="update(this)"
-        alt="edit" src="../Assets/icons/create-black-18dp.svg">
+        alt="edit" src="../assets/icons/create-black-18dp.svg">
     </td>
       </tr>  `;
     }
-
     document.querySelector("#display").innerHTML = innerHTML;
 }
 
@@ -67,4 +66,48 @@ const update = (data) => {
         return;
     localStorage.setItem('editEmp', JSON.stringify(employeePayrollData));
     window.location.replace(site_Properties.add_emp_payroll_page);
+}
+const employeePayrollJson = () =>{
+    let empPayrollListLocal = [
+
+        {
+        
+        _name: 'Narayan Mahadevan',
+        
+        _gender: 'male', 
+        _department: [
+        
+        'Engineering',
+        
+        'Finance'
+        ],
+        
+        _salary: '500000', _startDate: '29 Oct 2019',
+        
+        _note:''
+        , _id: new Date().getTime(),
+        
+        _profilePic: '../assets/profile-images/Ellipse -2.png'
+        
+        },
+         {
+        
+        _name: 'Amarpa Shashanka Keerthi Kumar',
+        
+        _gender: 'female', 
+        _department: [
+        
+        'Sales'],
+        
+        _salary: '400000',
+        
+        _startDate: '29 Oct 2019', 
+        _note: '',
+        id: new Date().getTime()+ 1,
+        
+        profilePic: '../assets/profile-images/Ellipse -1.png'
+         }
+        ];
+        
+        return empPayrollListLocal;
 }

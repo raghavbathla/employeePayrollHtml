@@ -67,6 +67,7 @@ function createAndUpdateStorage(employeePayrollData) {
         getItem("EmployeePayrollList"));
     if(employeePayrollList){
         let empPayrollData = employeePayrollList.
+        
         find(empData => empData._id == employeePayrollObj._id);
         if(!empPayrollData){
             employeePayrollList.push(createEmployeePayrollData());
