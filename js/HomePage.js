@@ -14,7 +14,7 @@ const createInnerHtml = () => {
     const headerHTML = "<tr> <th></th> <th>Name</th> <th>Gender</th> <th>Department</th>"+
                        "<th>Salary</th> <th>StartDate</th><th>Actions</th> </tr>";
                        if(empPayrollList.length == 0) return;
-    const innerHTML = `${headerHTML}`;
+    let innerHTML = `${headerHTML}`;
     for (const empPayrollData of empPayrollList) {
         innerHTML = `${innerHTML}
     <tr>
